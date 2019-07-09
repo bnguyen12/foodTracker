@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import uuid from 'uuid/v1';
+import NewFoodForm from './NewFoodForm';
 
 const FoodList = () => {
   // foods is the data, setFoods is the function to change data
@@ -9,10 +11,10 @@ const FoodList = () => {
     { name: 'bread', id: 3 }
   ]);
 
-  const addFood = () => {
+  const addFood = (name) => {
     // completely replaces the current value of "foods"
     // uuid creates a unique id when invoked
-    setFoods([...foods, { name: 'new food', id: uuid() }]);
+    setFoods([...foods, { name, id: uuid() }]);
   }
 
   return ( 
@@ -22,7 +24,7 @@ const FoodList = () => {
           return ( <li key={food.id}>{food.name}</li> )
         })}
       </ul>
-      <button onClick={addFood}>Add a food</button>
+      <NewFoodForm addFood={addFood} />
     </div>
   );
 }
