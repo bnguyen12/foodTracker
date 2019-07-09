@@ -5,6 +5,7 @@ import FoodList from './components/FoodList';
 import ThemeContextProvider from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import AuthContextProvider from './contexts/AuthContext';
+import FoodContextProvider from './contexts/FoodContext';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar/>
-          <FoodList/>
+          <FoodContextProvider>
+            <FoodList/>
+          </FoodContextProvider>
           <ThemeToggle/>
         </AuthContextProvider>
       </ThemeContextProvider>
