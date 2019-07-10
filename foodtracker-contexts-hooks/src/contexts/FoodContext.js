@@ -1,25 +1,13 @@
-import React, { createContext, useState } from 'react';
-
+import React, { createContext, useReducer } from 'react';
 import uuid from 'uuid/v1';
+import { foodReducer } from '../reducers/foodReducer';
 
 export const FoodContext = createContext();
 
 const FoodContextProvider = (props) => {
-  const [foods, setFoods] = useState([
-    { name: 'banana', foodType: 'breakfast', id: 1 },
-    { name: 'apple', foodType: 'breakfast', id: 2 }
-  ]);
-
-  const addFood = (name, foodType) => {
-    setFoods([...foods, {name, foodType, id: uuid()}]);
-  };
-
-  const removeFood = (id) => {
-    setFoods(foods.filter(food => food.id !== id));
-  };
-
+  const [foods, dispatch] = useReducer(foodReducer, []);
   return (
-    <FoodContext.Provider value={{foods, addFood, removeFood}}>
+    <FoodContext.Provider value={{foods, dispatch}}>
       { props.children }
     </FoodContext.Provider>
   )

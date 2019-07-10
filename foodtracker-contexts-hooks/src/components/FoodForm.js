@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { FoodContext } from '../contexts/FoodContext';
 
 const FoodForm = () => {
-  const { addFood } = useContext(FoodContext);
+  const { dispatch } = useContext(FoodContext);
   const [name, setName] = useState('');
   const [foodType, setFoodType] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    addFood(name, foodType);
+    dispatch({type: 'ADD_FOOD', food: {
+      name, foodType
+    }});
     setName('');
     setFoodType('');
   }
