@@ -20,6 +20,38 @@ body {
   text-align: center;
   background: #6d3d6d
 }
-.navbar h1 { 
+.navbar h1 {
   margin: 10px 0;
+}
+
+.food-list {
+  margin: 20px;
+}
+.food-list ul {
+  padding: 0;
+  list-style-type: none;
+}
+.food-list li {
+  background: #6d3d6d;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.food-list li:hover {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+.food-list .name {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.2em;
+}
+.food-list .foodType {
+  font-size: 0.9em;
+  color: #ddd;
+}
+.empty {
+  margin: 20px;
+  text-align: center;
 }
